@@ -1,0 +1,18 @@
+{
+  "name": "komkor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "postcss css/tailwind.css -o public/css/styles.css",
+    "watch": "postcss css/tailwind.css -o public/css/styles.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "autoprefixer": "^9.0.0",
+    "postcss-cli": "^8.1.0",
+    "tailwindcss": "^1.8.12"
+  }
+}

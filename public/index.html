@@ -1,0 +1,913 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Главная</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="css/styles.css"
+      charset="utf-8"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.0/dist/alpine.min.js"
+      defer
+    ></script>
+  </head>
+  <body class="overflow-x-hidden">
+    <!-- Header -->
+    <header class="bg-gray-bg pb-2">
+      <div class="md:container mx-auto pt-8 pb-12">
+        <!-- Nav -->
+        <div
+          class="relative px-4 flex flex-col space-y-6 sm:space-y-0 sm:flex-row items-center justify-between md:px-8"
+        >
+          <a href="index.html" class="block">
+            <div class="pr-4 flex-1 flex items-center space-x-4 sm:p-0">
+              <span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  width="70px"
+                  height="55px"
+                >
+                  <image
+                    x="0px"
+                    y="0px"
+                    width="70px"
+                    height="55px"
+                    xlink:href="data:img/png;base64,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"
+                  />
+                </svg>
+              </span>
+              <h1 class="uppercase text-3xl font-heading test">Комкор</h1>
+            </div>
+          </a>
+          <div
+            class="flex-1 flex items-center flex-row-reverse sm:flex-row space-x-8"
+          >
+            <div class="ml-8 relative max-w-xs w-full sm:ml-auto">
+              <input class="px-4 w-full bg-gray-light leading-8" type="text" />
+              <span class="absolute right-0 pt-2 pr-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  width="17px"
+                  height="17px"
+                >
+                  <image
+                    x="0px"
+                    y="0px"
+                    width="17px"
+                    height="17px"
+                    xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAQAAACRZI9xAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfkCgoGKieq4A4AAAAA1ElEQVQoz4XMTysEARgG8F/LUU5ycVSO2k+wt/WR+ADkLMldLuSgrJukvWlLLlvakIP8OXASthmzr8M2xjQTz+l96ve8jNPU8WZo6NWuWZUsC1+ubNtxZyTVLoMV4eLXsuleZqkALeG08vdBWox6UpMVsihs5iVxpi7PnsZHw4SjWnJuOidktWQk8jN1UkseveTnpaQGLAhbeWkLnQq5kZgp6rrQNfXT510Lx+XNmpDoWbWhL5PqC3tl1NL1KZH4cGAOgyqqZiDs/00aBsLhf59uvX8D5cBJ0qKif2AAAAAASUVORK5CYII="
+                  />
+                </svg>
+              </span>
+            </div>
+            <button class="hover:opacity-75">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                width="21px"
+                height="17px"
+              >
+                <image
+                  x="0px"
+                  y="0px"
+                  width="21px"
+                  height="17px"
+                  xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAARCAQAAACYjy8LAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfkCgoGNjdRIEM5AAABSUlEQVQoz4XQQUtUcRQF8N+8mUloomgRCDEKYotcGYYRqZuhxSzaKYHrttqmXSs/QV/Aj+AqxEUgaUKQikg6mJthFHEhhGXoyNjMv8W8hjfPhXdz7+EcuOecjO55b1IONMz5mKQyKWnFklUw69CbJJVLSRu+WAQlhW4qSkkzmvHVSn9MG9jEvnP3jFnwNkllr3lt6Dfts2XzfrlhJoRrxuJYkSlDCSuP8cHvDr6yYq3t9YGaFRcd6qHnlhK4X96T9tnryJ3Ep7LgfgK/9P1/WedCV7/ZVNysv+311LgpVXnHYFTZCz/U/cQtE0rG7QnU7Vq349IjvBLs+Kbq1ABeu7RtQ1WFw7iFA8N4p+U2nglGMWMZjKhFWgJCvK86mCYxImjmFAyq61EQIS9rwB/FTry7+lDUk3MavzhzglUHPgki62qoKPqKyNY/S6FgBh1dVUYAAAAASUVORK5CYII="
+                />
+              </svg>
+            </button>
+            <button class="hover:opacity-75">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                width="15px"
+                height="17px"
+              >
+                <image
+                  x="0px"
+                  y="0px"
+                  width="15px"
+                  height="17px"
+                  xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAARCAQAAACoAz4qAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfkCgoGNxdzVVKwAAAA90lEQVQoz3XQvyvEcRgH8Nf321eiG3T50aUYZDWxMKAsMii74UYDGdgNkrL4J6x+7EIyYDPIDeoMNyi6OB19cX0NzrnLeQ+fnqfXU8/Th5/02HLj2qFpf5Jx68W2VacSS40Y2HGvr9qtqxis55TYcq1r9Wrluwyr75urGsdy2ur5U2Cqxp2GPDZu35QYry7aVdLVyCkHEuf2PCiZ+b35N7PmhPK2FRu534RAzqVEt0nt7hz9jGS9KsuLPftQVJaXOJaCebEFHSK9pmQN6BAZcuFMmidrmiUtthF4N1L3JfU5EoYK/yAnKpGMUYWmPKwlsG9M3JQji1/FCkHWWxUuHQAAAABJRU5ErkJggg=="
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <!-- end of nav -->
+
+        <!-- Banner -->
+        <div
+          class="mt-16 flex flex-col justify-center items-center lg:-ml-12 lg:mt-10 lg:px-8"
+        >
+          <!-- image -->
+          <div class="relative flex items-center lg:space-x-4">
+            <span class="arrow z-30 left-0 -ml-1 md:-ml-6 lg:-ml-24 md:mt-48">
+              <svg
+                class="w-12 h-12 md:w-20 md:h-20"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1"
+                  d="M15 19l-7-7 7-7"
+                ></path>
+              </svg>
+            </span>
+            <div
+              class="hidden xl:block absolute -left-230 top-50 mt-20 z-20 px-6 py-16 rounded-full bg-white shadow-card-shadow"
+            >
+              <img
+                class="object-cover object-center"
+                src="./assets/carousel-white-img.png"
+                alt=""
+              />
+            </div>
+            <div class="hidden xl:block white-shape"></div>
+            <div class="slide fade">
+              <img
+                class="px-6 w-full max-w-4xl lg:px-0"
+                src="./assets/divan.png"
+                alt=""
+              />
+            </div>
+            <div class="slide fade">
+              <img
+                class="px-6 w-full max-w-4xl lg:px-0"
+                src="./assets/divan2.png"
+                alt=""
+              />
+            </div>
+            <div class="slide fade">
+              <img
+                class="px-6 w-full max-w-4xl lg:px-0"
+                src="./assets/divan3.png"
+                alt=""
+              />
+            </div>
+            <span
+              class="arrow -right-6 md:-right-30 lg:-right-100 z-30 md:mt-48"
+            >
+              <svg
+                class="w-12 h-12 md:w-20 md:h-20"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1"
+                  d="M9 5l7 7-7 7"
+                ></path>
+              </svg>
+            </span>
+          </div>
+
+          <div class="mt-2 sm:mt-8 px-2 md:ml-12 sm:p-0">
+            <div
+              class="text-2xl text-center sm:text-2xl+ md:text-3xl font-light uppercase"
+            >
+              Выкатной механизм 405/08 - ВЕНЕЦИЯ
+            </div>
+            <div
+              class="text-sm font-light text-center sm:text-sm+ md:text-base"
+            >
+              Текст поменьше, если нужно что-то расшифровать или дополнить инфо
+            </div>
+            <div class="mt-4 font-medium flex justify-center">
+              <a href="#" class="btn btn-main">Подробнее</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- End of Header -->
+
+    <!-- Second Nav (Зеленое поле) -->
+    <nav
+      class="bg-gradient-to-r from-darkgreen-bg to-much-darker-green-bg items-center"
+    >
+      <ul
+        class="lg:container mx-auto grid font-medium text-white text-center uppercase md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6"
+      >
+        <li class="border-r border-b border-white border-opacity-25">
+          <a
+            href="catalogue.html"
+            class="flex flex-col items-center py-6 px-6 xl:pt-12 xl:pb-8 xl:px-10 hover:opacity-75 cursor-pointer transition duration-150 ease-in-out"
+          >
+            <span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                width="62px"
+                height="52px"
+              >
+                <image
+                  x="0px"
+                  y="0px"
+                  width="62px"
+                  height="52px"
+                  xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAD4AAAA0CAQAAAB4U0OpAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfkCgoSChMF/9W7AAAD30lEQVRYw+2ZbWxTZRTHf7erLbrupSaKCYgBHdGYYHzZiB+cxExijJq4WBIxMbRD1A9ISIQ4JdMYJb5gYqfIFoGKTgWVYQxIFjLdYsAPyxLUocFp5zCoRLexdS2zW/v3A7ddKd28pVtNTM/50jwv93f+95x775NTQ2S0i6llBTfiInWBOEkHLXQTZyZMmbxcAUkxDet0moclhVSnIpG72zPEU8QLrOI4O+lNKrRhAFDK3Xhoppg3kGWFWShfqkH9qSVTxOuQX9K41s6G8uVsxM0JvDhMtTYm+IMjfAFAlKcQ69hCnK0zqfxSNWpAme13valyc12xXpcUyVW9kZI4F358jPIOv6XdkRjX4AVa8TFsrt3MWiI8jf/ChafCPezmKI9xlPGUFTZAXMK9NFPKPnycBqCYzTzBGJ/TTtRM0L+bjWG+49i5cIN5BKihlR2UmZcyCPMtfcmqvp9dlLCXRxgCwMkmNuIgiizDIU6UD3iOUwl4MU+ymvkZlkb5mJfoSeLfxcUnrDHxBlV4uIWLLD92Yg4VlNGOhyGEXPpQ0pB6dFhfp/gRdekvST9rWbJIajUo6SPNzaHQbla3JL/chlxsoIE+1tPG2HmR1tDAbfSx2nzQoJYmLuMQLzOQVXVF+IWo+ftWOuljE7pH30u6a8o4F6pDUvAc9b2SpBHLHtKIevWWqswruPSTRrTNUCMPM8L1hKaMeREBqgnio9McqcTHUuZiWM51nMtx0M/jHATK6GQxe+yU4mRw2moN4iVANQG8Jr6LLhZRbqnGDbPQylhJHc3cyXEM7IgY2q6wepLvrql8gb6SFFStbBdcaC69L+lF2VWqHoW13W4hdoATrKSFanbSQBibxV0GYb7hMzoAGKWNB7gdZyJZVuHwKyt4hlXcYHnHWVtGHY08Sxw4wzhuirKHwynW8xqVVKAsvuXX4aGeCZ5H2DBS92YDhxj99GepHFrZjY/9dKdPWM1eLnaAfSzgvvMn8gGHY8AVkH7szAfcwJl5Ij/KAQTpL6X8wf9T5QV4AV6AF+AF+P8bLmIYFOUfbgAGbv5mIP/wKCGWcyX9HMw3XMzBy6tAC4ezO73mjp5gITsweJsmxvINByc/sI33GM323J6LxYCrKWE/6wieHcpfzs9QxaPYaEqgE23N3BuZ05sAL4e4iq18OTmc6KnGZhU+AbgZxU89kclhOz8SYj4l03QmckdXAAeoT3a1knfkWrVJekWOmWhiZ/QaRTSkmzK1Pw3u4FNc7Mqqk2jdFrOGeWxhQ4Y5IfSQTmo2rTFz2yXR/lzCg1RSPkN/XyTMIEove2lPLbNJ+wdMh2Je0i4BUwAAAABJRU5ErkJggg=="
+                />
+              </svg>
+            </span>
+            <span class="mt-6"> Каталог <br />продукции </span>
+          </a>
+        </li>
+        <li class="border-r border-b border-white border-opacity-25">
+          <a
+            href="about.html"
+            class="flex flex-col items-center py-6 px-6 xl:pt-12 xl:pb-8 xl:px-10 hover:opacity-75 cursor-pointer transition duration-150 ease-in-out"
+          >
+            <span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                width="76px"
+                height="51px"
+              >
+                <image
+                  x="0px"
+                  y="0px"
+                  width="76px"
+                  height="51px"
+                  xlink:href="data:img/png;base64,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"
+                />
+              </svg>
+            </span>
+            <span class="mt-6"> О компании </span>
+          </a>
+        </li>
+        <li
+          class="border-r lg:border-r-0 xl:border-r border-b border-white border-opacity-25"
+        >
+          <a
+            class="flex flex-col items-center py-6 px-6 xl:pt-12 xl:pb-8 xl:px-10 hover:opacity-75 cursor-pointer transition duration-150 ease-in-out"
+          >
+            <span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                width="78px"
+                height="49px"
+              >
+                <image
+                  x="0px"
+                  y="0px"
+                  width="78px"
+                  height="49px"
+                  xlink:href="data:img/png;base64,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"
+                />
+              </svg>
+            </span>
+            <span class="mt-6"> Услуги </span>
+          </a>
+        </li>
+        <li class="border-r border-b border-white border-opacity-25">
+          <a
+            class="flex flex-col items-center py-6 px-6 xl:pt-12 xl:pb-8 xl:px-10 hover:opacity-75 cursor-pointer transition duration-150 ease-in-out"
+          >
+            <span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                width="56px"
+                height="57px"
+              >
+                <image
+                  x="0px"
+                  y="0px"
+                  width="56px"
+                  height="57px"
+                  xlink:href="data:img/png;base64,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"
+                />
+              </svg>
+            </span>
+            <span class="mt-6 leading-5"> Условия <br />сотрудничества </span>
+          </a>
+        </li>
+        <li class="border-r border-b border-white border-opacity-25">
+          <a
+            class="flex flex-col items-center py-6 px-6 xl:pt-12 xl:pb-8 xl:px-10 hover:opacity-75 cursor-pointer transition duration-150 ease-in-out"
+          >
+            <span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                width="57px"
+                height="56px"
+              >
+                <image
+                  x="0px"
+                  y="0px"
+                  width="57px"
+                  height="56px"
+                  xlink:href="data:img/png;base64,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"
+                />
+              </svg>
+            </span>
+            <span class="mt-6"> Вакансии </span>
+          </a>
+        </li>
+
+        <li
+          class="border-b border-white border-opacity-25 xl:flex xl:space-x-4 xl:ml-5"
+        >
+          <a
+            href="contacts.html"
+            class="flex flex-col items-center py-6 px-6 xl:pt-12 xl:pb-8 xl:px-10 hover:opacity-75 cursor-pointer transition duration-150 ease-in-out"
+          >
+            <span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                width="53px"
+                height="52px"
+              >
+                <image
+                  x="0px"
+                  y="0px"
+                  width="53px"
+                  height="52px"
+                  xlink:href="data:img/png;base64,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"
+                />
+              </svg>
+            </span>
+            <span class="mt-6"> Контакты</span>
+          </a>
+          <!-- Social links (very large screens) -->
+          <div class="hidden xl:flex flex-col space-y-4 items-center mt-8">
+            <a class="social-links" href="#">
+              <svg
+                class="text-white h-6 w-6"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 3333 1980"
+                shape-rendering="geometricPrecision"
+                text-rendering="geometricPrecision"
+                image-rendering="optimizeQuality"
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+              >
+                <path
+                  d="M3257 134c23-77 0-134-110-134h-365c-93 0-135 49-159 103 0 0-185 452-448 746-85 85-124 112-170 112-23 0-58-27-58-104V135c0-93-26-134-103-134h-573c-58 0-93 43-93 84 0 88 131 108 145 355v537c0 118-21 139-68 139-124 0-424-454-603-974C617 41 582 0 489 0H124C20 0-1 49-1 103c0 97 124 576 576 1209 301 433 726 667 1112 667 232 0 260-52 260-142v-327c0-104 22-125 95-125 54 0 147 27 363 236 247 247 288 358 427 358h365c104 0 156-52 126-155-33-102-151-251-308-427-85-100-212-209-251-263-54-70-39-100 0-162 0 0 444-626 491-838z"
+                />
+              </svg>
+            </a>
+            <a class="social-links" href="#"
+              ><svg
+                class="text-white h-6 w-6"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                version="1.1"
+                viewBox="0 0 155.139 155.139"
+                style="enable-background: new 0 0 155.139 155.139"
+                xml:space="preserve"
+              >
+                <path
+                  xmlns="http://www.w3.org/2000/svg"
+                  id="f_1_"
+                  d="M89.584,155.139V84.378h23.742l3.562-27.585H89.584V39.184   c0-7.984,2.208-13.425,13.67-13.425l14.595-0.006V1.08C115.325,0.752,106.661,0,96.577,0C75.52,0,61.104,12.853,61.104,36.452   v20.341H37.29v27.585h23.814v70.761H89.584z"
+                />
+              </svg>
+            </a>
+            <a class="social-links" href="#">
+              <svg
+                class="text-white h-6 w-6"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                />
+              </svg>
+            </a>
+            <a class="social-links" href="#">
+              <svg
+                class="text-white h-6 w-6"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M4.652 0h1.44l.988 3.702.916-3.702h1.454l-1.665 5.505v3.757h-1.431v-3.757l-1.702-5.505zm6.594 2.373c-1.119 0-1.861.74-1.861 1.835v3.349c0 1.204.629 1.831 1.861 1.831 1.022 0 1.826-.683 1.826-1.831v-3.349c0-1.069-.797-1.835-1.826-1.835zm.531 5.127c0 .372-.19.646-.532.646-.351 0-.554-.287-.554-.646v-3.179c0-.374.172-.651.529-.651.39 0 .557.269.557.651v3.179zm4.729-5.07v5.186c-.155.194-.5.512-.747.512-.271 0-.338-.186-.338-.46v-5.238h-1.27v5.71c0 .675.206 1.22.887 1.22.384 0 .918-.2 1.468-.853v.754h1.27v-6.831h-1.27zm2.203 13.858c-.448 0-.541.315-.541.763v.659h1.069v-.66c.001-.44-.092-.762-.528-.762zm-4.703.04c-.084.043-.167.109-.25.198v4.055c.099.106.194.182.287.229.197.1.485.107.619-.067.07-.092.105-.241.105-.449v-3.359c0-.22-.043-.386-.129-.5-.147-.193-.42-.214-.632-.107zm4.827-5.195c-2.604-.177-11.066-.177-13.666 0-2.814.192-3.146 1.892-3.167 6.367.021 4.467.35 6.175 3.167 6.367 2.6.177 11.062.177 13.666 0 2.814-.192 3.146-1.893 3.167-6.367-.021-4.467-.35-6.175-3.167-6.367zm-12.324 10.686h-1.363v-7.54h-1.41v-1.28h4.182v1.28h-1.41v7.54zm4.846 0h-1.21v-.718c-.223.265-.455.467-.696.605-.652.374-1.547.365-1.547-.955v-5.438h1.209v4.988c0 .262.063.438.322.438.236 0 .564-.303.711-.487v-4.939h1.21v6.506zm4.657-1.348c0 .805-.301 1.431-1.106 1.431-.443 0-.812-.162-1.149-.583v.5h-1.221v-8.82h1.221v2.84c.273-.333.644-.608 1.076-.608.886 0 1.18.749 1.18 1.631v3.609zm4.471-1.752h-2.314v1.228c0 .488.042.91.528.91.511 0 .541-.344.541-.91v-.452h1.245v.489c0 1.253-.538 2.013-1.813 2.013-1.155 0-1.746-.842-1.746-2.013v-2.921c0-1.129.746-1.914 1.837-1.914 1.161 0 1.721.738 1.721 1.914v1.656z"
+                />
+              </svg>
+            </a>
+          </div>
+        </li>
+        <!-- social links (smaller screens) -->
+        <div
+          class="flex items-center space-x-8 mx-auto py-4 px-4 md:col-span-2 lg:col-span-3 xl:hidden"
+        >
+          <a class="social-links" href="#">
+            <svg
+              class="text-white h-6 w-6"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 3333 1980"
+              shape-rendering="geometricPrecision"
+              text-rendering="geometricPrecision"
+              image-rendering="optimizeQuality"
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+            >
+              <path
+                d="M3257 134c23-77 0-134-110-134h-365c-93 0-135 49-159 103 0 0-185 452-448 746-85 85-124 112-170 112-23 0-58-27-58-104V135c0-93-26-134-103-134h-573c-58 0-93 43-93 84 0 88 131 108 145 355v537c0 118-21 139-68 139-124 0-424-454-603-974C617 41 582 0 489 0H124C20 0-1 49-1 103c0 97 124 576 576 1209 301 433 726 667 1112 667 232 0 260-52 260-142v-327c0-104 22-125 95-125 54 0 147 27 363 236 247 247 288 358 427 358h365c104 0 156-52 126-155-33-102-151-251-308-427-85-100-212-209-251-263-54-70-39-100 0-162 0 0 444-626 491-838z"
+              />
+            </svg>
+          </a>
+          <a class="social-links" href="#"
+            ><svg
+              class="text-white h-6 w-6"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              version="1.1"
+              viewBox="0 0 155.139 155.139"
+              style="enable-background: new 0 0 155.139 155.139"
+              xml:space="preserve"
+            >
+              <path
+                xmlns="http://www.w3.org/2000/svg"
+                id="f_1_"
+                d="M89.584,155.139V84.378h23.742l3.562-27.585H89.584V39.184   c0-7.984,2.208-13.425,13.67-13.425l14.595-0.006V1.08C115.325,0.752,106.661,0,96.577,0C75.52,0,61.104,12.853,61.104,36.452   v20.341H37.29v27.585h23.814v70.761H89.584z"
+              />
+            </svg>
+          </a>
+          <a class="social-links" href="#">
+            <svg
+              class="text-white h-6 w-6"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+              />
+            </svg>
+          </a>
+          <a class="social-links" href="#">
+            <svg
+              class="text-white h-6 w-6"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M4.652 0h1.44l.988 3.702.916-3.702h1.454l-1.665 5.505v3.757h-1.431v-3.757l-1.702-5.505zm6.594 2.373c-1.119 0-1.861.74-1.861 1.835v3.349c0 1.204.629 1.831 1.861 1.831 1.022 0 1.826-.683 1.826-1.831v-3.349c0-1.069-.797-1.835-1.826-1.835zm.531 5.127c0 .372-.19.646-.532.646-.351 0-.554-.287-.554-.646v-3.179c0-.374.172-.651.529-.651.39 0 .557.269.557.651v3.179zm4.729-5.07v5.186c-.155.194-.5.512-.747.512-.271 0-.338-.186-.338-.46v-5.238h-1.27v5.71c0 .675.206 1.22.887 1.22.384 0 .918-.2 1.468-.853v.754h1.27v-6.831h-1.27zm2.203 13.858c-.448 0-.541.315-.541.763v.659h1.069v-.66c.001-.44-.092-.762-.528-.762zm-4.703.04c-.084.043-.167.109-.25.198v4.055c.099.106.194.182.287.229.197.1.485.107.619-.067.07-.092.105-.241.105-.449v-3.359c0-.22-.043-.386-.129-.5-.147-.193-.42-.214-.632-.107zm4.827-5.195c-2.604-.177-11.066-.177-13.666 0-2.814.192-3.146 1.892-3.167 6.367.021 4.467.35 6.175 3.167 6.367 2.6.177 11.062.177 13.666 0 2.814-.192 3.146-1.893 3.167-6.367-.021-4.467-.35-6.175-3.167-6.367zm-12.324 10.686h-1.363v-7.54h-1.41v-1.28h4.182v1.28h-1.41v7.54zm4.846 0h-1.21v-.718c-.223.265-.455.467-.696.605-.652.374-1.547.365-1.547-.955v-5.438h1.209v4.988c0 .262.063.438.322.438.236 0 .564-.303.711-.487v-4.939h1.21v6.506zm4.657-1.348c0 .805-.301 1.431-1.106 1.431-.443 0-.812-.162-1.149-.583v.5h-1.221v-8.82h1.221v2.84c.273-.333.644-.608 1.076-.608.886 0 1.18.749 1.18 1.631v3.609zm4.471-1.752h-2.314v1.228c0 .488.042.91.528.91.511 0 .541-.344.541-.91v-.452h1.245v.489c0 1.253-.538 2.013-1.813 2.013-1.155 0-1.746-.842-1.746-2.013v-2.921c0-1.129.746-1.914 1.837-1.914 1.161 0 1.721.738 1.721 1.914v1.656z"
+              />
+            </svg>
+          </a>
+        </div>
+        <!-- end of social links -->
+      </ul>
+    </nav>
+    <!-- End of Second Nav -->
+
+    <main class="mt-16">
+      <!-- Наша Продукция (Products) -->
+      <section class="container mx-auto">
+        <article>
+          <h2 class="font-medium text-4xl uppercase tracking-wide text-center">
+            Наша продукция
+          </h2>
+          <div
+            class="px-4 mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:gap-1 xl:grid-cols-5"
+          >
+            <div
+              class="p-10 flex flex-col items-center justify-center bg-grayer-gray shadow"
+            >
+              <img src="./assets/item1.png" alt="item1" />
+              <div
+                class="mt-8 text-sm+ leading-5 font-medium uppercase tracking-wide text-center"
+              >
+                Механизмы трансформации
+              </div>
+            </div>
+            <div
+              class="p-10 flex flex-col items-center justify-center bg-grayer-gray shadow"
+            >
+              <img src="./assets/item2.png" alt="item1" />
+              <div
+                class="mt-8 text-sm+ leading-5 font-medium uppercase tracking-wide text-center"
+              >
+                каркасные механизмы
+              </div>
+            </div>
+            <div
+              class="p-10 flex flex-col items-center justify-center bg-grayer-gray shadow"
+            >
+              <img src="./assets/item3.png" alt="item1" />
+              <div
+                class="mt-8 text-sm+ leading-5 font-medium uppercase tracking-wide text-center"
+              >
+                Ортопедические основания
+              </div>
+            </div>
+            <div
+              class="p-10 flex flex-col items-center justify-center bg-grayer-gray shadow"
+            >
+              <img src="./assets/item4.png" alt="item1" />
+              <div
+                class="mt-8 text-sm+ leading-5 font-medium uppercase tracking-wide text-center"
+              >
+                Роликовые опоры
+              </div>
+            </div>
+            <div
+              class="p-10 flex flex-col items-center justify-center bg-grayer-gray shadow"
+            >
+              <img src="./assets/item5.png" alt="item1" />
+              <div
+                class="mt-8 text-sm+ leading-5 font-medium uppercase tracking-wide text-center"
+              >
+                прочая фурнитура
+              </div>
+            </div>
+          </div>
+          <div class="flex justify-center items-center mt-12">
+            <a href="" class="mt-2 inline-block btn btn-secondary font-medium">
+              Смотреть Все</a
+            >
+          </div>
+        </article>
+      </section>
+
+      <!-- video-->
+      <section class="mt-20 relative w-full">
+        <div class="w-full h-full max-h-245 overflow-hidden md:max-h-540">
+          <div
+            class="h-full w-full bg-cover bg-center block md:hidden"
+            style="
+              background-image: url('https://www.mazda.ru/globalassets/test-images/02_homepage_480x852.jpg');
+            "
+          ></div>
+          <video class="relative w-full hidden md:block" autoplay loop muted>
+            <source
+              src="https://www.mazda.ru/globalassets/test-images/04_configurator_promo1280x720px.mp4"
+            />
+          </video>
+        </div>
+        <div
+          class="absolute top-0 flex flex-col justify-center w-full py-16 bg-video-bg md:bg-transparent lg:bg-gradient-to-r from-bg-orange-lighter to-bg-orange-darker md:py-12 lg:static"
+        >
+          <div
+            class="container mx-auto flex-col flex justify-between items-center -mt-6 md:mt-0 lg:flex-row lg:px-24 xl:pl-32 xl:pr-64"
+          >
+            <div
+              class="font-light leading-9 text-white text-center text-xl sm:text-2xl lg:text-left lg:text-black lg:leading-10 lg:text-3xl"
+            >
+              ИНДИВИДУАЛЬНЫЙ ПОДХОД <br />
+              <span class="font-bold">К КАЖДОМУ КЛИЕНТУ</span>
+            </div>
+            <div class="mt-10 md:mt-16 lg:mt-0">
+              <a
+                href=""
+                class="btn btn-black bg-white text-black lg:text-white lg:bg-black font-medium text-base"
+                >Оставить Заявку</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About -->
+      <section
+        class="container mx-auto px-4 sm:px-12 mt-16 flex flex-col max-w-3xl justify-center items-center text-center md:mt-6 lg:mt-20"
+      >
+        <div>
+          <img src="./assets//logo-about__section.png" alt="" />
+        </div>
+        <div>
+          <h3 class="-mt-4 uppercase text-5xl md:text-6xl font-heading test">
+            Комкор
+          </h3>
+        </div>
+        <div class="mt-4 uppercase font-light text-lg md:text-xl">
+          Наша компания существует на Российском рынке с 2006 года
+        </div>
+        <div class="mt-6 text-sm md:text-base">
+          За это время компания «КомКор» прошла большой путь от маленькой фирмы
+          до одного из крупнейших производителей фурнитуры для мебели в России.
+        </div>
+        <div class="mt-12">
+          <a href="" class="btn btn-main py-5 font-medium">Узнать больше</a>
+        </div>
+      </section>
+
+      <!-- Maps -->
+      <section
+        class="mt-32 flex flex-col space-y-5 lg:flex-row lg:space-y-0 lg:space-x-3 w-full"
+      >
+        <div class="relative w-full h-full">
+          <div class="overflow-hidden bg-none h-full w-full">
+            <iframe
+              class="min-w-full"
+              height="500px"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d204163.43788029318!2d36.67299836983763!3d55.57227188330435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54afc73d4b0c9%3A0x3d44d6cc5757cf4c!2sMoscow%2C%20Russia!5e0!3m2!1sen!2s!4v1602455187383!5m2!1sen!2s"
+              width="auto"
+              height="auto"
+              frameborder="0"
+              style="border: 0"
+              allowfullscreen=""
+              aria-hidden="false"
+              tabindex="0"
+            ></iframe>
+          </div>
+        </div>
+        <div class="relative w-full h-full">
+          <div class="overflow-hidden bg-none h-full w-full">
+            <iframe
+              class="min-w-full"
+              height="500px"
+              src="https://maps.google.com/maps?q=%D0%BC%D0%BE%D1%81%D0%BA%D0%B2%D0%B0&t=&z=13&ie=UTF8&iwloc=&output=embed"
+              frameborder="0"
+              scrolling="no"
+              marginheight="0"
+              marginwidth="0"
+            ></iframe>
+          </div>
+        </div>
+      </section>
+
+      <!-- footer -->
+      <footer class="bg-footer-gray">
+        <div
+          class="container mx-auto px-4 grid sm:grid-cols-2 xl:grid-cols-4 pb-12 pt-16 gap-12 xl:gap-4 xl:pt-10 xl:px-2"
+        >
+          <div
+            class="mx-auto flex flex-col space-y-3 justify-center sm:mx-0 xl:mr-6 xl:pt-8"
+          >
+            <div class="mb-5 flex items-center space-x-4">
+              <span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  width="70px"
+                  height="55px"
+                >
+                  <image
+                    x="0px"
+                    y="0px"
+                    width="70px"
+                    height="55px"
+                    xlink:href="data:img/png;base64,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"
+                  />
+                </svg>
+              </span>
+              <h1 class="uppercase text-3xl font-heading test">Комкор</h1>
+            </div>
+            <div class="flex items-start space-x-3">
+              <span class="mt-1">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  width="13px"
+                  height="14px"
+                >
+                  <image
+                    x="0px"
+                    y="0px"
+                    width="13px"
+                    height="14px"
+                    xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAAOCAQAAABedl5ZAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfkCgsSMQrlmvUmAAAAmUlEQVQY023QMQ4BARCF4W+XbKLUkKhJ9AqJG4i7iDs4gbiCiFIQN1CsRK/aGr2CSrEWu3ameZl/ZvJmgp7SGKiHJeXIwsGp+gdGdkhcwkL/3g7M+EUTD8O3XpEtbNjof5oSt2xq7PoDmENV11a7YGUJobOO4J3T77q8DeLMHQS5b0QeaKZT+ZOfElJQRMSOmay08qhm7Z7KF/+IHYNbrQQgAAAAAElFTkSuQmCC"
+                  />
+                </svg>
+              </span>
+              <div class="font-light text-sm footer-text">
+                Московская обл., г. Ивантеевка, <br />ул. Толмачева, д. 49
+              </div>
+            </div>
+            <div class="flex items-center space-x-3">
+              <span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  width="16px"
+                  height="16px"
+                >
+                  <image
+                    x="0px"
+                    y="0px"
+                    width="16px"
+                    height="16px"
+                    xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAQAAAC1+jfqAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfkCgsSMReGnJn/AAAA30lEQVQoz3XPvUqCcRQH4McPnApCsMFoaYuKECPoDoSkodZuoUtpamoSWhoagoIGg2irIYkMigKXjAiCF5Ja7MMG7c3w7286HB7OR6J4ZN6XjLqSbwNJW5ADBQW1QZD02avGzBECr/GsyTA40IlJEOxrgRuHYXDrGGdWXQy7oYJ3d4JJ5WmYUdZyPgx0NK0pa7gOAx49WFHS7JGCDUumpDz/vrZr1LaKnC3TdsziQ+QqUfybtm7TuBMjFuPeS3dFN3WnspZN9J0Q9QOe7KlJy8tIgvZ/APeqqiJZbW8ufwCJ3jeHnUhJhgAAAABJRU5ErkJggg=="
+                  />
+                </svg>
+              </span>
+              <div class="font-light text-sm footer-text">
+                +7 (495) 708-49-94, +7(905) 142-11-33
+              </div>
+            </div>
+            <div class="flex items-center space-x-3">
+              <span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  width="13px"
+                  height="14px"
+                >
+                  <image
+                    x="0px"
+                    y="0px"
+                    width="13px"
+                    height="14px"
+                    xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAAOCAQAAABedl5ZAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfkCgsSMQrlmvUmAAAAmUlEQVQY023QMQ4BARCF4W+XbKLUkKhJ9AqJG4i7iDs4gbiCiFIQN1CsRK/aGr2CSrEWu3ameZl/ZvJmgp7SGKiHJeXIwsGp+gdGdkhcwkL/3g7M+EUTD8O3XpEtbNjof5oSt2xq7PoDmENV11a7YGUJobOO4J3T77q8DeLMHQS5b0QeaKZT+ZOfElJQRMSOmay08qhm7Z7KF/+IHYNbrQQgAAAAAElFTkSuQmCC"
+                  />
+                </svg>
+              </span>
+              <div class="font-light text-sm footer-text">
+                manager.komkor@gmail.com
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="-mt-1 flex flex-col justify-center items-center max-w-xs mx-auto sm:mx-0 sm:max-w-full lg:ml-auto lg:max-w-xs"
+          >
+            <div
+              class="font-light footer-text uppercase tracking-wide ml-6 sm:ml-0"
+            >
+              Наша компания существует на Российском рынке с 2006 года.
+            </div>
+            <div
+              class="mt-4 text-sm+ font-light footer-text leading-7 ml-6 sm:ml-0"
+            >
+              За это время компания «КомКор» прошла большой путь от маленькой
+              фирмы до одного из крупнейших производителей фурнитуры для мебели
+              в России.
+            </div>
+          </div>
+
+          <div
+            class="flex flex-col justify-center items-center mr-16 sm:mr-auto xl:mr-0 xl:-mt-1"
+          >
+            <h3
+              class="font-medium footer-text uppercase tracking-wide text-lg ml-2 sm:ml-0"
+            >
+              Каталог продукции
+            </h3>
+            <nav class="mt-3 -ml-3">
+              <ul class="">
+                <li class="mt-1">
+                  <a class="footer-links" href="">Механизмы трансформации</a>
+                </li>
+                <li class="mt-1">
+                  <a class="footer-links" href="">Каркасные механизмы</a>
+                </li>
+                <li class="mt-1">
+                  <a class="footer-links" href="">Ортопедические основания</a>
+                </li>
+                <li class="mt-1">
+                  <a class="footer-links" href="">Роликовые опоры</a>
+                </li>
+                <li class="mt-1">
+                  <a class="footer-links" href="">Прочая фурнитура</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <div
+            class="flex flex-col items-center mr-32 sm:mr-auto lg:mr-0 xl:mt-6 xl:mr-0"
+          >
+            <h3
+              class="mr-6 font-medium footer-text uppercase tracking-wide text-lg ml-4 sm:ml-0"
+            >
+              информация
+            </h3>
+            <nav class="mt-3 ml-4 sm:ml-0">
+              <ul class="">
+                <li class="mt-1">
+                  <a class="footer-links" href="about.html">О компании</a>
+                </li>
+                <li class="mt-1"><a class="footer-links" href="">Услуги</a></li>
+                <li class="mt-1">
+                  <a class="footer-links" href="">Условия сотрудничества</a>
+                </li>
+                <li class="mt-1">
+                  <a class="footer-links" href="">Вакансии</a>
+                </li>
+                <li class="mt-1">
+                  <a class="footer-links" href="contacts.html">Контакты</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </footer>
+      <aside class="bg-footer-text">
+        <div
+          class="container mx-auto px-2 py-6 flex flex-col space-y-6 sm:space-y-0 sm:flex-row justify-between items-center"
+        >
+          <div class="text-xs">
+            <span class="text-footer-copyright-text uppercase tracking-wide"
+              >© 2020 ООО «Комкор» <span class="ml-1">|</span></span
+            >
+            <span class="ml-1 text-btn-orange"
+              >Политика конфиденциальности</span
+            >
+          </div>
+          <div class="flex items-center space-x-5 text-white">
+            <a class="social-links" href="#"
+              ><svg
+                class="text-footer-social_links h-5 w-5"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                version="1.1"
+                viewBox="0 0 155.139 155.139"
+                style="enable-background: new 0 0 155.139 155.139"
+                xml:space="preserve"
+              >
+                <path
+                  xmlns="http://www.w3.org/2000/svg"
+                  id="f_1_"
+                  d="M89.584,155.139V84.378h23.742l3.562-27.585H89.584V39.184   c0-7.984,2.208-13.425,13.67-13.425l14.595-0.006V1.08C115.325,0.752,106.661,0,96.577,0C75.52,0,61.104,12.853,61.104,36.452   v20.341H37.29v27.585h23.814v70.761H89.584z"
+                />
+              </svg>
+            </a>
+            <a class="social-links" href="#">
+              <svg
+                class="text-footer-social_links h-5 w-5"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 3333 1980"
+                shape-rendering="geometricPrecision"
+                text-rendering="geometricPrecision"
+                image-rendering="optimizeQuality"
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+              >
+                <path
+                  d="M3257 134c23-77 0-134-110-134h-365c-93 0-135 49-159 103 0 0-185 452-448 746-85 85-124 112-170 112-23 0-58-27-58-104V135c0-93-26-134-103-134h-573c-58 0-93 43-93 84 0 88 131 108 145 355v537c0 118-21 139-68 139-124 0-424-454-603-974C617 41 582 0 489 0H124C20 0-1 49-1 103c0 97 124 576 576 1209 301 433 726 667 1112 667 232 0 260-52 260-142v-327c0-104 22-125 95-125 54 0 147 27 363 236 247 247 288 358 427 358h365c104 0 156-52 126-155-33-102-151-251-308-427-85-100-212-209-251-263-54-70-39-100 0-162 0 0 444-626 491-838z"
+                />
+              </svg>
+            </a>
+            <a class="social-links" href="#">
+              <svg
+                class="text-footer-social_links h-5 w-5"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M4.652 0h1.44l.988 3.702.916-3.702h1.454l-1.665 5.505v3.757h-1.431v-3.757l-1.702-5.505zm6.594 2.373c-1.119 0-1.861.74-1.861 1.835v3.349c0 1.204.629 1.831 1.861 1.831 1.022 0 1.826-.683 1.826-1.831v-3.349c0-1.069-.797-1.835-1.826-1.835zm.531 5.127c0 .372-.19.646-.532.646-.351 0-.554-.287-.554-.646v-3.179c0-.374.172-.651.529-.651.39 0 .557.269.557.651v3.179zm4.729-5.07v5.186c-.155.194-.5.512-.747.512-.271 0-.338-.186-.338-.46v-5.238h-1.27v5.71c0 .675.206 1.22.887 1.22.384 0 .918-.2 1.468-.853v.754h1.27v-6.831h-1.27zm2.203 13.858c-.448 0-.541.315-.541.763v.659h1.069v-.66c.001-.44-.092-.762-.528-.762zm-4.703.04c-.084.043-.167.109-.25.198v4.055c.099.106.194.182.287.229.197.1.485.107.619-.067.07-.092.105-.241.105-.449v-3.359c0-.22-.043-.386-.129-.5-.147-.193-.42-.214-.632-.107zm4.827-5.195c-2.604-.177-11.066-.177-13.666 0-2.814.192-3.146 1.892-3.167 6.367.021 4.467.35 6.175 3.167 6.367 2.6.177 11.062.177 13.666 0 2.814-.192 3.146-1.893 3.167-6.367-.021-4.467-.35-6.175-3.167-6.367zm-12.324 10.686h-1.363v-7.54h-1.41v-1.28h4.182v1.28h-1.41v7.54zm4.846 0h-1.21v-.718c-.223.265-.455.467-.696.605-.652.374-1.547.365-1.547-.955v-5.438h1.209v4.988c0 .262.063.438.322.438.236 0 .564-.303.711-.487v-4.939h1.21v6.506zm4.657-1.348c0 .805-.301 1.431-1.106 1.431-.443 0-.812-.162-1.149-.583v.5h-1.221v-8.82h1.221v2.84c.273-.333.644-.608 1.076-.608.886 0 1.18.749 1.18 1.631v3.609zm4.471-1.752h-2.314v1.228c0 .488.042.91.528.91.511 0 .541-.344.541-.91v-.452h1.245v.489c0 1.253-.538 2.013-1.813 2.013-1.155 0-1.746-.842-1.746-2.013v-2.921c0-1.129.746-1.914 1.837-1.914 1.161 0 1.721.738 1.721 1.914v1.656z"
+                />
+              </svg>
+            </a>
+            <a class="social-links" href="#">
+              <svg
+                class="text-footer-social_links h-5 w-5"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <script>
+      let slideIndex = 0;
+      showSlides();
+      function showSlides() {
+        let i;
+        let slide = document.getElementsByClassName("slide");
+        console.log(slide);
+        for (i = 0; i < slide.length; i++) {
+          slide[i].style.display = "none";
+          console.log("works");
+        }
+        slideIndex++;
+        if (slideIndex > slide.length) {
+          slideIndex = 1;
+        }
+        slide[slideIndex - 1].style.display = "block";
+        setTimeout(showSlides, 5000);
+      }
+    </script>
+  </body>
+</html>

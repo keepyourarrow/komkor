@@ -1,0 +1,205 @@
+@tailwind base;
+@tailwind components;
+
+body {
+  font-family: Ubuntu, "Open Sans", "sans-serif";
+}
+@font-face {
+  font-family: granit;
+  src: url("../font/granit.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+button:focus {
+  @apply outline-none opacity-75;
+}
+a {
+  @apply transition duration-75 ease-in-out;
+}
+a:focus {
+  @apply outline-none opacity-75;
+}
+.form-select {
+  @apply appearance-none h-8 px-3 bg-white rounded;
+  color: #333333;
+  width: 240px;
+  line-height: 1;
+}
+.form-select:focus {
+  @apply outline-none shadow-outline;
+}
+
+/* carousel */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.white-shape {
+  position: absolute;
+  z-index: 10;
+  width: 0;
+  height: 0;
+  border-top: 109px solid transparent;
+  border-left: 203px solid #e9e9e9;
+  border-bottom: 127px solid transparent;
+  position: absolute;
+  top: 94px;
+  left: -50px;
+  opacity: 0.85;
+  /* opacity: 0.75; */
+  margin-left: 10px;
+  transform: rotate(-19deg);
+}
+.white-shape::after {
+  @apply rounded-full;
+  content: "";
+  position: absolute;
+  left: -9px;
+  top: -6px;
+  width: 12px;
+  height: 12px;
+  background-color: #f58221;
+}
+
+.arrow {
+  @apply absolute text-gray-darker cursor-pointer transition duration-150 ease-in-out;
+}
+.arrow:hover {
+  @apply text-gray-700;
+}
+.arrow-catalogue_item {
+  @apply absolute text-black-arrows;
+}
+.arrow-catalogue_item:hover {
+  @apply text-category-links;
+}
+/* end carousel */
+
+.btn {
+  @apply text-lg uppercase tracking-wide bg-btn-orange rounded-md transition duration-150 ease-in-out;
+}
+
+.btn-main {
+  @apply py-3 px-10 text-white bg-btn-orange;
+}
+.btn-main:hover {
+  @apply bg-orange-500;
+}
+.btn-main:focus {
+  @apply bg-orange-600 opacity-100;
+}
+.btn-secondary {
+  @apply py-4 px-12 text-white  bg-btn-darkgreen;
+}
+.btn-secondary:hover {
+  background-color: #0b9b5d;
+}
+.btn-secondary:focus {
+  background-color: #0e3a28;
+}
+.btn-black {
+  @apply py-5 px-8 text-white bg-black;
+}
+.btn-black:hover {
+  opacity: 0.9;
+}
+.btn-black:focus {
+  @apply shadow-outline opacity-100;
+}
+.social-links {
+  @apply transition duration-150 ease-in-out;
+}
+.social-links:hover {
+  @apply opacity-75;
+}
+.footer-links {
+  @apply transition duration-300 ease-in-out text-sm+ font-light text-footer-text;
+}
+.footer-links:hover {
+  @apply text-black underline;
+}
+.bar {
+  background-color: rgb(112, 97, 97);
+  width: 30px;
+  height: 3px;
+  margin: 7px;
+  @apply transition duration-150 ease-in;
+}
+.bar1 {
+  transform: rotate(-45deg) translate(-8px, 6px);
+}
+.bar3 {
+  transform: rotate(45deg) translate(-8px, -5px);
+}
+.nav-link a {
+  @apply relative m-0 py-1 transition duration-300;
+}
+.nav-link a::after {
+  width: 0;
+  content: "";
+  display: block;
+  position: absolute;
+  top: 100%;
+  margin-top: 0;
+  height: 2.5px;
+  background: rgb(4, 4, 4);
+  opacity: 0;
+  left: 50%;
+  -webkit-transform: translate(-50%);
+  transform: translate(-50%);
+  transition: all 0.3s ease;
+}
+.nav-link:hover a::after {
+  width: 100%;
+  opacity: 1;
+}
+
+.smallScreens__nav-links {
+  @apply border-b border-category-links border-opacity-50 py-8 text-black-icon transition duration-75 ease-linear cursor-pointer;
+}
+.smallScreens__nav-links:hover {
+  @apply text-indigo-600;
+}
+.sort-links {
+  @apply border-dotted border-b border-black h-6;
+}
+.sort-links:hover {
+  @apply border-solid border-black border-b-2 h-6;
+}
+@media (min-width: 1024px) {
+  .sort-links {
+    height: 1.125rem;
+  }
+  .sort-links:hover {
+    @apply h-5;
+  }
+}
+.card-item {
+  @apply bg-white flex flex-col items-center justify-center  shadow-card-shadow cursor-pointer transition duration-500 ease-in-out;
+}
+.card-item:hover {
+  @apply shadow-card-shadow-hover opacity-85;
+}
+
+@tailwind utilities;
