@@ -111,7 +111,9 @@
         >
           <!-- image -->
           <div class="relative flex items-center lg:space-x-4">
-            <span class="arrow z-30 left-0 -ml-1 md:-ml-6 lg:-ml-24 md:mt-48">
+            <span
+              class="arrow z-30 left-0 -ml-1 md:-ml-6 lg:-ml-24 md:mt-48 xl:-mt-2"
+            >
               <svg
                 class="w-12 h-12 md:w-20 md:h-20"
                 fill="none"
@@ -128,7 +130,7 @@
               </svg>
             </span>
             <div
-              class="hidden xl:block absolute -left-230 top-50 mt-20 z-20 px-6 py-16 rounded-full bg-white shadow-card-shadow"
+              class="hidden xl:block absolute -left-230 top-110 mt-20 z-20 px-6 py-16 rounded-full bg-white shadow-card-shadow"
             >
               <img
                 class="object-cover object-center"
@@ -159,7 +161,7 @@
               />
             </div>
             <span
-              class="arrow -right-6 md:-right-30 lg:-right-100 z-30 md:mt-48"
+              class="arrow -right-6 md:-right-30 lg:-right-100 z-30 md:mt-48 xl:mt-0"
             >
               <svg
                 class="w-12 h-12 md:w-20 md:h-20"
@@ -896,7 +898,6 @@
       function showSlides() {
         let i;
         let slide = document.getElementsByClassName("slide");
-        console.log(slide);
         for (i = 0; i < slide.length; i++) {
           slide[i].style.display = "none";
           console.log("works");

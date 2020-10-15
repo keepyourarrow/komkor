@@ -3,7 +3,9 @@ module.exports = {
     // removeDeprecatedGapUtilities: true,
     // purgeLayersByDefault: true,
   },
-  purge: [],
+  purge: [
+
+  ],
   theme: {
     extend: {
       colors: {
@@ -68,7 +70,9 @@ module.exports = {
         '-100':'-100px',
         '-230':'-230px',
         '50':'50px',
+        '110':'110px',
         '127':'127px',
+        '152':'152px'
 
       },
       maxHeight: {
