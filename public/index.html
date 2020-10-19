@@ -31,7 +31,7 @@
     class="overflow-x-hidden"
   >
     <!-- Header -->
-    <header class="bg-gray-bg pb-2">
+    <header class="pb-2">
       <div class="md:container mx-auto pt-8 pb-12">
         <!-- Nav -->
         <div
@@ -160,14 +160,14 @@
             <div class="slide fade">
               <img
                 class="px-6 w-full max-w-4xl lg:px-0"
-                src="./assets/divan2.png"
+                src="./assets/divan.png"
                 alt=""
               />
             </div>
             <div class="slide fade">
               <img
                 class="px-6 w-full max-w-4xl lg:px-0"
-                src="./assets/divan3.png"
+                src="./assets/divan.png"
                 alt=""
               />
             </div>
@@ -597,7 +597,7 @@
           </video>
         </div>
         <div
-          class="absolute top-0 flex flex-col justify-center w-full py-16 bg-video-bg md:bg-transparent lg:bg-gradient-to-r from-bg-orange-lighter to-bg-orange-darker md:py-12 lg:static"
+          class="absolute top-0 flex flex-col justify-center w-full py-12- bg-video-bg md:bg-transparent lg:bg-gradient-to-r from-bg-orange-lighter to-bg-orange-darker md:py-12 lg:static"
         >
           <div
             class="container mx-auto flex-col flex justify-between items-center -mt-6 md:mt-0 lg:flex-row lg:px-24 xl:pl-32 xl:pr-64"
@@ -1029,6 +1029,7 @@
       function showSlides() {
         let i;
         let slide = document.getElementsByClassName("slide");
+        let header = document.querySelector("header");
         for (i = 0; i < slide.length; i++) {
           slide[i].style.display = "none";
           console.log("works");
@@ -1036,6 +1037,13 @@
         slideIndex++;
         if (slideIndex > slide.length) {
           slideIndex = 1;
+        }
+        if (slideIndex === 1) {
+          header.style.background = "#dff1e4";
+        } else if (slideIndex === 2) {
+          header.style.background = "#ffd7d1";
+        } else {
+          header.style.background = "#d2e2fe";
         }
         slide[slideIndex - 1].style.display = "block";
         setTimeout(showSlides, 5000);
