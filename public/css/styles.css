@@ -986,6 +986,12 @@ a.anchor {
   /* visibility: hidden; */
 }
 
+@media (max-width: 1280px) {
+  .contacts-article {
+    flex-direction: column-reverse;
+  }
+}
+
 @media (max-width: 720px) {
   .map,
   .contacts-block {

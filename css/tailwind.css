@@ -207,6 +207,12 @@ a.anchor {
   top: -150px;
   /* visibility: hidden; */
 }
+@media (max-width: 1280px) {
+  .contacts-article {
+    @apply flex-col-reverse;
+    -webkit-box-orient: vertical;
+  }
+}
 @media (max-width: 720px) {
   .map,
   .contacts-block {
