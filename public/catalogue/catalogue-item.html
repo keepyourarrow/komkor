@@ -179,11 +179,11 @@
             <article class="flex flex-col-reverse items-center lg:space-y-0 lg:flex-row">
               <div class="mt-12 w-full bg-white shadow-card-shadow lg:w-auto lg:my-0">
                 <ul>
-                  <li class="group flex items-center">
-                    <a href="#menu1"
-                      @click="menu = 'menu1'"
+                  <li>
+                  <a href="#menu1" @click="menu = 'menu1'" class="group flex items-center">
+                    <span
                       class="px-6 py-3 w-full border-b border-gray-bg group-hover:bg-gray-bg "
-                      >Принцип работы</a
+                      >Принцип работы</span
                     >
                     <span
                     :class="menu === 'menu1' ? 'bg-gearIcon-orange' : 'bg-gearIcon-gray'"
@@ -203,12 +203,13 @@
                         />
                       </svg>
                     </span>
-                  </li>
-                  <li class="group flex items-center">
-                    <a href="#menu2"
-                      @click="menu = 'menu2'"
+                  </a>
+                </li>
+                <li>
+                  <a href="#menu2" @click="menu = 'menu2'" class="group flex items-center">
+                    <span
                       class="px-6 py-3 w-full border-b border-gray-bg hover:bg-gray-bg "
-                      >Технические характеристики</a
+                      >Технические характеристики</span
                     >
                     <span
                     :class="menu === 'menu2' ? 'bg-gearIcon-orange' : 'bg-gearIcon-gray'"
@@ -229,38 +230,42 @@
                         />
                       </svg>
                     </span>
-                  </li>
-                  <li class="group flex items-center">
-                    <a href="#menu3"
-                       @click="menu = 'menu3'"
-                       class="px-6 py-3 w-full border-b border-gray-bg hover:bg-gray-bg "
-                      >Отзовы об эксплуатации</a
+                  </a>
+                </li>
+                <li>
+                  <a href="#menu3"
+                  @click="menu = 'menu3'" class="group flex items-center">
+                    <span
+                    class="px-6 py-3 w-full border-b border-gray-bg hover:bg-gray-bg "
+                    >Отзовы об эксплуатации</span
                     >
                     <span
-                      :class="menu === 'menu3' ? 'bg-gearIcon-orange' : 'bg-gearIcon-gray'"
-                      class="ml-auto py-3 px-4 w-54 h-54 flex items-center border-b
+                    :class="menu === 'menu3' ? 'bg-gearIcon-orange' : 'bg-gearIcon-gray'"
+                    class="ml-auto py-3 px-4 w-54 h-54 flex items-center border-b
                     border-footer-copyright-text border-opacity-50 justify-center group-hover:bg-gearIcon-orange">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        xmlns:xlink="http://www.w3.org/1999/xlink"
-                        width="24px"
-                        height="27px"
-                      >
-                        <image
-                          x="0px"
-                          y="0px"
-                          width="24px"
-                          height="27px"
-                          xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAbCAQAAADM6ofdAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfkCg0QOAtlsPVLAAABLklEQVQ4y5WQMUvDUBSFv5Q4KM2gg5OLf0Dc3NxEcHMT/BXirFBEoR0MiIqDGFGU4ijYoXZwFC1IETrYqQjVUYiIQ+1xCCHRpsnr96Z37z3ccy5ydK6qFoXZQ2O6lPSmksZNBScKqGvVTOApxNeFprMFp4rzqjU5phtCbjSnkWRBjiSWqLHBVGKvz1LEvZY1amYppKdjzQ4jkKSm1pUfRiD1VNV8PLRFOhYLlNllMgydtSHgRw2taMLGlBwzFLBsA0sBPhW2aNqADMafKFEGMLHU4Yoi78EnW1DBpRZ90zO8cITHR7yUlsHD5fl/cZClOjvc8tnfSLL0jcteGDJJELfU5Y5NHukOivXXUpt9DvlKO1q0weeaAq2sK9tYOMADB5xlDQNYyrMNFOmYjMMvBIOmWPG3t+MAAAAASUVORK5CYII="
-                        />
-                      </svg>
-                    </span>
-                  </li>
-                  <li class="group flex items-center">
-                    <a
-                      href="#menu4"
-                      @click="menu = 'menu4'"
-                      class="px-6 py-3 w-full border-b border-gray-bg hover:bg-gray-bg ">3D модель</a>
+                    <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    width="24px"
+                    height="27px"
+                    >
+                    <image
+                    x="0px"
+                    y="0px"
+                    width="24px"
+                    height="27px"
+                    xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAbCAQAAADM6ofdAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfkCg0QOAtlsPVLAAABLklEQVQ4y5WQMUvDUBSFv5Q4KM2gg5OLf0Dc3NxEcHMT/BXirFBEoR0MiIqDGFGU4ijYoXZwFC1IETrYqQjVUYiIQ+1xCCHRpsnr96Z37z3ccy5ydK6qFoXZQ2O6lPSmksZNBScKqGvVTOApxNeFprMFp4rzqjU5phtCbjSnkWRBjiSWqLHBVGKvz1LEvZY1amYppKdjzQ4jkKSm1pUfRiD1VNV8PLRFOhYLlNllMgydtSHgRw2taMLGlBwzFLBsA0sBPhW2aNqADMafKFEGMLHU4Yoi78EnW1DBpRZ90zO8cITHR7yUlsHD5fl/cZClOjvc8tnfSLL0jcteGDJJELfU5Y5NHukOivXXUpt9DvlKO1q0weeaAq2sK9tYOMADB5xlDQNYyrMNFOmYjMMvBIOmWPG3t+MAAAAASUVORK5CYII="
+                    />
+                  </svg>
+                </span>
+              </a>
+              </li>
+                <li>
+                  <a href="#menu4"
+                     @click="menu = 'menu4'"
+                     class="group flex items-center">
+                    <span
+                      class="px-6 py-3 w-full border-b border-gray-bg hover:bg-gray-bg ">3D модель</span>
                     <span
                       :class="menu === 'menu4' ? 'bg-gearIcon-orange' : 'bg-gearIcon-gray'"
                       class="ml-auto p-3 w-54 h-54 flex items-center border-b
@@ -280,13 +285,16 @@
                         />
                       </svg>
                     </span>
-                  </li>
-                  <li class="group flex items-center">
-                    <a
-                      href="#menu5"
-                      @click="menu ='menu5'"
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#menu5"
+                    @click="menu ='menu5'"
+                    class="group flex items-center">
+                    <span
                       class="px-6 py-3 w-full border-b border-gray-bg group-hover:bg-gray-bg "
-                      >Сопутствующие товары</a
+                      >Сопутствующие товары</span
                     >
                     <span
                       :class="menu === 'menu5' ? 'bg-gearIcon-orange' : 'bg-gearIcon-gray'"
@@ -307,7 +315,7 @@
                         />
                       </svg>
                     </span>
-                  </li>
+                  </a>
                 </ul>
               </div>
 
