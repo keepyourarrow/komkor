@@ -13,12 +13,17 @@
       href="css/styles.css"
       charset="utf-8"
     />
+    <style>
+      [x-cloak] {
+        display: none;
+      }
+    </style>
     <script
       src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
       defer
     ></script>
   </head>
-  <body x-data="data()"
+  <body x-cloak x-data="data()"
   :class="openSideNav ? 'overflow-hidden' : 'overflow-visible'"
   >
     <!-- Nav -->

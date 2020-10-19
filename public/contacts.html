@@ -13,13 +13,20 @@
       href="css/styles.css"
       charset="utf-8"
     />
+    <style>
+      [x-cloak] {
+        display: none;
+      }
+    </style>
     <script
       src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
       defer
     ></script>
   </head>
-  <body x-data="{openInput: false, openSideNav:false}"
-  :class="openSideNav ? 'overflow-hidden' : 'overflow-visible'"
+  <body
+      x-cloak
+      x-data="{openInput: false, openSideNav:false}"
+      :class="openSideNav ? 'overflow-hidden' : 'overflow-visible'"
   >
     <!-- Nav -->
     <header class="bg-white z-50 fixed top-0 left-0 right-0 w-full py-4 xl:pb-6 border-b border-footer-gray">
@@ -165,7 +172,7 @@
       </section>
 
       <section class="lg:container lg:mx-auto lg:px-4 py-24">
-        <article class="flex  flex-col-reverse xl:space-x-8 xl:items-start xl:flex-row">
+        <article class="flex flex-col-reverse xl:space-x-8 xl:items-start xl:flex-row">
           <!-- Контакты  -->
           <div class="flex-1 flex flex-col  mt-20 items-center sm:items-baseline sm:px-20 lg:px-24 xl:px-0 xl:mt-0">
               <div class="text-black">
