@@ -174,7 +174,7 @@
             </div>
           </section>
 
-          <section id='menu1' class='lg:container lg:mx-auto sm:px-4 py-16'>
+          <section class='lg:container lg:mx-auto sm:px-4 py-16'>
             <!-- menu -->
             <article class="flex flex-col-reverse items-center lg:space-y-0 lg:flex-row">
               <div class="mt-12 w-full bg-white shadow-card-shadow lg:w-auto lg:my-0">
@@ -326,7 +326,8 @@
             <!-- end of menu -->
 
             <!-- Принцип работы механизма -->
-            <article id='menu2' class="mt-12 flex flex-col sm:flex-row">
+            <article class="mt-12 flex flex-col sm:flex-row">
+              <div id='menu1' class="-mt-24 pt-24"></div>
               <span
                 :class="menu === 'menu1' ? 'bg-gearIcon-orange' : 'bg-gearIcon-gray'"
                 class="p-3 w-54 h-54 border-b  border-footer-copyright-text border-opacity-50">
@@ -361,7 +362,8 @@
             </article>
 
             <!-- Технические характеристики -->
-            <article id="menu3" class="mt-12 flex flex-col sm:flex-row">
+            <article class="mt-12 flex flex-col sm:flex-row">
+              <div id='menu2' class="-mt-24 pt-24"></div>
               <span
               :class="menu === 'menu2' ? 'bg-gearIcon-orange' : 'bg-gearIcon-gray'"
               class="px-3 pt-2 w-54 h-54 flex items-center border-b  border-footer-copyright-text border-opacity-50 justify-center">
@@ -398,7 +400,9 @@
             </article>
 
             <!-- Отзывы -->
-            <article id='menu4' class="mt-12 flex flex-col sm:flex-row">
+            <article class="mt-12 flex flex-col sm:flex-row">
+              <div id='menu3' class="-mt-24 pt-24"></div>
+              <div class="-mt-20 pt-20"></div>
               <span
                 :class="menu === 'menu3' ? 'bg-gearIcon-orange' : 'bg-gearIcon-gray'"
                 class="py-3 px-4 w-54 h-54 flex items-center border-b  border-footer-copyright-text border-opacity-50 justify-center">
@@ -427,21 +431,21 @@
                   <div class="mt-5 pt-1 grid gap-6 sm:gap-4 sm:grid-cols-2 md:mt-0">
 
                     <div class="w-full h-full  overflow-hidden ">
-                      <video class="relative w-full" controls playsinside>
+                      <video class="relative w-full border" controls playsinside>
                         <source
                         src="https://www.mazda.ru/globalassets/test-images/04_configurator_promo1280x720px.mp4"
                         />
                       </video>
                     </div>
                     <div class="w-full h-full  overflow-hidden ">
-                      <video class="relative w-full" controls playsinside>
+                      <video class="relative w-full border" controls playsinside>
                         <source
                         src="https://www.mazda.ru/globalassets/test-images/04_configurator_promo1280x720px.mp4"
                         />
                       </video>
                     </div>
                     <div class="w-full h-full  overflow-hidden ">
-                      <video class="relative w-full" controls playsinside>
+                      <video class="relative w-full border" controls playsinside>
                         <source
                         src="https://www.mazda.ru/globalassets/test-images/04_configurator_promo1280x720px.mp4"
                         />
@@ -461,7 +465,9 @@
           </article>
 
           <!-- Изменяемые характеристики -->
-          <article id='menu5' class="mt-12 flex flex-col sm:flex-row">
+          <article class="mt-12 flex flex-col sm:flex-row">
+            <div id='menu4' class="-mt-24 pt-24"></div>
+            <div class="-mt-20 pt-20"></div>
             <span
               :class="menu === 'menu4' ? 'bg-gearIcon-orange' : 'bg-gearIcon-gray'"
               class="ml-auto p-3 w-54 h-54 flex items-center border-b  border-footer-copyright-text border-opacity-50 justify-center">
@@ -561,6 +567,8 @@
 
           <!-- Сопутствующие товары -->
           <article class="mt-12 flex flex-col sm:flex-row">
+            <div id='menu5' class="-mt-24 pt-24"></div>
+            <div class="-mt-20 pt-20"></div>
             <span
               :class="menu === 'menu5' ? 'bg-gearIcon-orange' : 'bg-gearIcon-gray'"
               class="p-3 w-54 h-54 flex items-center border-b border-footer-copyright-text border-opacity-50 justify-center"
@@ -895,6 +903,7 @@
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
         e.preventDefault();
+
         document.querySelector(this.getAttribute('href')).scrollIntoView({
             behavior: 'smooth'
         });
