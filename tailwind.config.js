@@ -44,6 +44,7 @@ module.exports = {
         '54':'54px',
         '56-':'13.5rem',
         '80':'20rem',
+        'veryLarge':'25rem',
         '215':'215px',
         '380':'380px',
         '480':'480px',
@@ -81,6 +82,10 @@ module.exports = {
         '600':'600px',
         '750':'750px'
       },
+      maxWidth: {
+        'xxs':'18rem',
+        'xs+':'20.1rem'
+      },
       opacity:{
         85:'0.85'
       },
@@ -100,7 +105,7 @@ module.exports = {
     boxShadow:['responsive','hover','focus'],
     height:['responsive','hover'],
     width:['responsive'],
-    backgroundColor:['responsive','hover','focus'],
+    backgroundColor:['responsive','hover','focus', 'group-hover'],
     backgroundImage:['responsive'],
     textAlign: ['responsive'],
     maxHeight:['responsive'],

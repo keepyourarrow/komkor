@@ -18,7 +18,7 @@
       defer
     ></script>
   </head>
-  <body x-data="{openInput: false, openSideNav:false}"
+  <body x-data="{openInput: false, openSideNav:false, menu:'menu1'}"
   :class="openSideNav ? 'overflow-hidden' : 'overflow-visible'"
   >
     <!-- Nav -->
@@ -174,16 +174,20 @@
             </div>
           </section>
 
-          <section class='lg:container lg:mx-auto sm:px-4 py-16'>
+          <section id='menu1' class='lg:container lg:mx-auto sm:px-4 py-16'>
             <!-- menu -->
             <article class="flex flex-col-reverse items-center lg:space-y-0 lg:flex-row">
               <div class="mt-12 w-full bg-white shadow-card-shadow lg:w-auto lg:my-0">
                 <ul>
-                  <li class="flex items-center">
-                    <a href="" class="px-6 py-3 w-full border-b border-gray-bg hover:bg-gray-bg "
+                  <li class="group flex items-center">
+                    <a href="#menu1"
+                      @click="menu = 'menu1'"
+                      class="px-6 py-3 w-full border-b border-gray-bg group-hover:bg-gray-bg "
                       >Принцип работы</a
                     >
-                    <span class="ml-auto p-3 w-54 h-54 bg-gearIcon-orange border-b  border-footer-copyright-text border-opacity-50">
+                    <span
+                    :class="menu === 'menu1' ? 'bg-gearIcon-orange' : 'bg-gearIcon-gray'"
+                    class="ml-auto p-3 w-54 h-54 border-b border-footer-copyright-text border-opacity-50 group-hover:bg-gearIcon-orange">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -200,11 +204,16 @@
                       </svg>
                     </span>
                   </li>
-                  <li class="flex items-center">
-                    <a href="" class="px-6 py-3 w-full border-b border-gray-bg hover:bg-gray-bg "
+                  <li class="group flex items-center">
+                    <a href="#menu2"
+                      @click="menu = 'menu2'"
+                      class="px-6 py-3 w-full border-b border-gray-bg hover:bg-gray-bg "
                       >Технические характеристики</a
                     >
-                    <span class="ml-auto px-3 pt-2 w-54 h-54 flex items-center border-b  border-footer-copyright-text border-opacity-50 justify-center bg-gearIcon-gray">
+                    <span
+                    :class="menu === 'menu2' ? 'bg-gearIcon-orange' : 'bg-gearIcon-gray'"
+                    class="ml-auto px-3 pt-2 w-54 h-54 flex items-center border-b
+                    border-footer-copyright-text border-opacity-50 justify-center group-hover:bg-gearIcon-orange">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -221,11 +230,16 @@
                       </svg>
                     </span>
                   </li>
-                  <li class="flex items-center">
-                    <a href="" class="px-6 py-3 w-full border-b border-gray-bg hover:bg-gray-bg "
+                  <li class="group flex items-center">
+                    <a href="#menu3"
+                       @click="menu = 'menu3'"
+                       class="px-6 py-3 w-full border-b border-gray-bg hover:bg-gray-bg "
                       >Отзовы об эксплуатации</a
                     >
-                    <span class="ml-auto py-3 px-4 w-54 h-54 flex items-center border-b  border-footer-copyright-text border-opacity-50 justify-center bg-gearIcon-gray">
+                    <span
+                      :class="menu === 'menu3' ? 'bg-gearIcon-orange' : 'bg-gearIcon-gray'"
+                      class="ml-auto py-3 px-4 w-54 h-54 flex items-center border-b
+                    border-footer-copyright-text border-opacity-50 justify-center group-hover:bg-gearIcon-orange">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -242,9 +256,15 @@
                       </svg>
                     </span>
                   </li>
-                  <li class="flex items-center">
-                    <a href="" class="px-6 py-3 w-full border-b border-gray-bg hover:bg-gray-bg ">3D модель</a>
-                    <span class="ml-auto p-3 w-54 h-54 flex items-center border-b  border-footer-copyright-text border-opacity-50 justify-center bg-gearIcon-gray">
+                  <li class="group flex items-center">
+                    <a
+                      href="#menu4"
+                      @click="menu = 'menu4'"
+                      class="px-6 py-3 w-full border-b border-gray-bg hover:bg-gray-bg ">3D модель</a>
+                    <span
+                      :class="menu === 'menu4' ? 'bg-gearIcon-orange' : 'bg-gearIcon-gray'"
+                      class="ml-auto p-3 w-54 h-54 flex items-center border-b
+                    border-footer-copyright-text border-opacity-50 justify-center group-hover:bg-gearIcon-orange">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -261,11 +281,17 @@
                       </svg>
                     </span>
                   </li>
-                  <li class="flex items-center">
-                    <a href="" class="px-6 py-3 w-full border-b border-gray-bg hover:bg-gray-bg "
+                  <li class="group flex items-center">
+                    <a
+                      href="#menu5"
+                      @click="menu ='menu5'"
+                      class="px-6 py-3 w-full border-b border-gray-bg group-hover:bg-gray-bg "
                       >Сопутствующие товары</a
                     >
-                    <span class="ml-auto p-3 w-54 h-54 flex items-center border-b  border-footer-copyright-text border-opacity-50 justify-center bg-gearIcon-gray">
+                    <span
+                      :class="menu === 'menu5' ? 'bg-gearIcon-orange' : 'bg-gearIcon-gray'"
+                      class="ml-auto p-3 w-54 h-54 flex items-center border-b
+                     border-footer-copyright-text border-opacity-50 justify-center group-hover:bg-gearIcon-orange">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -292,8 +318,10 @@
             <!-- end of menu -->
 
             <!-- Принцип работы механизма -->
-            <article class="mt-12 flex flex-col sm:flex-row">
-              <span class="p-3 w-54 h-54 bg-gearIcon-orange border-b  border-footer-copyright-text border-opacity-50">
+            <article id='menu2' class="mt-12 flex flex-col sm:flex-row">
+              <span
+                :class="menu === 'menu1' ? 'bg-gearIcon-orange' : 'bg-gearIcon-gray'"
+                class="p-3 w-54 h-54 border-b  border-footer-copyright-text border-opacity-50">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -325,8 +353,10 @@
             </article>
 
             <!-- Технические характеристики -->
-            <article class="mt-12 flex flex-col sm:flex-row">
-              <span class="px-3 pt-2 w-54 h-54 flex items-center border-b  border-footer-copyright-text border-opacity-50 justify-center bg-gearIcon-gray">
+            <article id="menu3" class="mt-12 flex flex-col sm:flex-row">
+              <span
+              :class="menu === 'menu2' ? 'bg-gearIcon-orange' : 'bg-gearIcon-gray'"
+              class="px-3 pt-2 w-54 h-54 flex items-center border-b  border-footer-copyright-text border-opacity-50 justify-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -360,8 +390,10 @@
             </article>
 
             <!-- Отзывы -->
-            <article class="mt-12 flex flex-col sm:flex-row">
-              <span class="py-3 px-4 w-54 h-54 flex items-center border-b  border-footer-copyright-text border-opacity-50 justify-center bg-gearIcon-gray">
+            <article id='menu4' class="mt-12 flex flex-col sm:flex-row">
+              <span
+                :class="menu === 'menu3' ? 'bg-gearIcon-orange' : 'bg-gearIcon-gray'"
+                class="py-3 px-4 w-54 h-54 flex items-center border-b  border-footer-copyright-text border-opacity-50 justify-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -421,23 +453,25 @@
           </article>
 
           <!-- Изменяемые характеристики -->
-          <article class="mt-12 flex flex-col sm:flex-row">
-    <span class="ml-auto p-3 w-54 h-54 flex items-center border-b  border-footer-copyright-text border-opacity-50 justify-center bg-gearIcon-gray">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
-        width="30px"
-        height="30px"
-      >
-        <image
-          x="0px"
-          y="0px"
-          width="30px"
-          height="30px"
-          xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAQAAACROWYpAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfkCg0QODo0bvVxAAABiElEQVQ4y53Uz2pTURAG8N9JbhP/oGgXYlBcabGLglv7APoMghsFn0JfoRtBELrRR3DnI0h3rnQnbkSEmlKrJmmTcZGbmKs5aW6+A/cwZ2buzJlv5gjZ9SD2Yz8+RydnUcjjrHWc08wZNBY4/wYDRzmDwgvnM7qbZfxdP+dok6MUA2tWw3HDyYqunBT2XBJzletuYOSjwdy0D0TKrkcREXEY13MWRSYqjMoIw5zNIqrGhTyT74WUD6xjE0Pv9MuTl27hjeelHHXWh4iI2J3Ii9L+Hz9mvig81BaSQBISWfkKuOOxJPRT9LVqRf+LQUNvRVd6hQOprNzpqY/Hc6AnCd0UV2sU7a0tvPIUjApf69wSHPoyFutRdRFcmIjV1rvmCXjt01znHR3sTeVKB92NMe4t13HVtH/9s5+Cwm3NkhQ2y9MN3SlJE7pMrSaaYYpvLk9/lcpnNjvBFXQLrTnz2lzClVZDuxZZs2inuD/z9G7YAc+8X8L5uFr8rZKq7eWoqt53zfcad/YH0MH/eXIYRjUAAAAASUVORK5CYII="
-        />
-      </svg>
-    </span>
+          <article id='menu5' class="mt-12 flex flex-col sm:flex-row">
+            <span
+              :class="menu === 'menu4' ? 'bg-gearIcon-orange' : 'bg-gearIcon-gray'"
+              class="ml-auto p-3 w-54 h-54 flex items-center border-b  border-footer-copyright-text border-opacity-50 justify-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                width="30px"
+                height="30px"
+              >
+                <image
+                  x="0px"
+                  y="0px"
+                  width="30px"
+                  height="30px"
+                  xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAQAAACROWYpAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfkCg0QODo0bvVxAAABiElEQVQ4y53Uz2pTURAG8N9JbhP/oGgXYlBcabGLglv7APoMghsFn0JfoRtBELrRR3DnI0h3rnQnbkSEmlKrJmmTcZGbmKs5aW6+A/cwZ2buzJlv5gjZ9SD2Yz8+RydnUcjjrHWc08wZNBY4/wYDRzmDwgvnM7qbZfxdP+dok6MUA2tWw3HDyYqunBT2XBJzletuYOSjwdy0D0TKrkcREXEY13MWRSYqjMoIw5zNIqrGhTyT74WUD6xjE0Pv9MuTl27hjeelHHXWh4iI2J3Ii9L+Hz9mvig81BaSQBISWfkKuOOxJPRT9LVqRf+LQUNvRVd6hQOprNzpqY/Hc6AnCd0UV2sU7a0tvPIUjApf69wSHPoyFutRdRFcmIjV1rvmCXjt01znHR3sTeVKB92NMe4t13HVtH/9s5+Cwm3NkhQ2y9MN3SlJE7pMrSaaYYpvLk9/lcpnNjvBFXQLrTnz2lzClVZDuxZZs2inuD/z9G7YAc+8X8L5uFr8rZKq7eWoqt53zfcad/YH0MH/eXIYRjUAAAAASUVORK5CYII="
+                />
+              </svg>
+            </span>
 
     <!-- контент -->
     <div class="py-6 px-4  sm:py-6 sm:px-6  bg-category-gray w-full">
@@ -520,7 +554,8 @@
           <!-- Сопутствующие товары -->
           <article class="mt-12 flex flex-col sm:flex-row">
             <span
-              class="p-3 w-54 h-54 flex items-center border-b border-footer-copyright-text border-opacity-50 justify-center bg-gearIcon-gray"
+              :class="menu === 'menu5' ? 'bg-gearIcon-orange' : 'bg-gearIcon-gray'"
+              class="p-3 w-54 h-54 flex items-center border-b border-footer-copyright-text border-opacity-50 justify-center"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -847,5 +882,16 @@
       </div>
     </aside>
 
+
+    <script>
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+    </script>
 </body>
 </html>

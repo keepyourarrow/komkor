@@ -20,7 +20,7 @@
   </head>
   <body
   x-data="data()"
-  :class="openSideNav ? 'overflow-hidden' : 'overflow-visible'"
+  :class="openModal || openSideNav ? 'overflow-hidden' : 'overflow-visible'"
   >
     <!-- Nav -->
     <header class="bg-white z-50 fixed top-0 left-0 right-0 w-full py-4 xl:pb-6 border-b border-footer-gray">
@@ -449,11 +449,71 @@
                 предложений</p
               >
             </div>
-            <a
-              href=""
+            <button
+            @click="openModal = true"
               class="btn btn-black  mx-auto mt-12 py-4 text-white bg-black font-medium text-base lg:-ml-12  lg:mt-2"
-              >Оставить Заявку</a
+              >Оставить Заявку</button
             >
+
+            <!-- Modal -->
+            <aside
+            x-show="openModal"
+            class="fixed inset-0 w-full h-full flex items-center justify-center bg-black bg-opacity-85 z-50"
+          >
+            <div
+              class="relative max-w-md w-full bg-white rounded-sm shadow-card-shadow"
+            >
+              <div class="px-6 pt-4 border-b border-footer-gray">
+                <h3 class="capitalize font-bold text-2xl">
+                  оставить заявку
+                </h3>
+              </div>
+              <form class="pt-10 pl-8 pr-20 py-4">
+                <label class="" for="name">
+                  Имя:
+                  <input
+                    id="name"
+                    class="py-1 px-2 rounded-sm border border-gray-darker w-full focus:outline-none focus:border-category-links"
+                    type="text"
+                  />
+                </label>
+                <label class="mt-6 block" for="email">
+                  Email:
+                  <input
+                    id="email"
+                    class="py-1 px-2 rounded-sm border border-gray-darker w-full focus:outline-none focus:border-category-links"
+                    type="email"
+                  />
+                </label>
+                <label class="mt-6 block" for="phone">
+                  Телефон:
+                  <input
+                    id="phone"
+                    class="py-1 px-2 rounded-sm border border-gray-darker w-full focus:outline-none focus:border-category-links"
+                    type="text"
+                  />
+                </label>
+              </form>
+
+              <div class="bg-video-bg border-t border-video-bg">
+                <div
+                  class="px-6 py-4 space-x-6 flex justify-end items-center text-white"
+                >
+                  <button
+                    class="text-lg hover:underline"
+                    @click="openModal = false"
+                  >
+                    Отменить
+                  </button>
+                  <button
+                    class="px-6 py-2 text-lg rounded-md bg-blue-500 hover:bg-blue-600 focus:bg-blue-700 focus:opacity-100"
+                  >
+                    Отправить
+                  </button>
+                </div>
+              </div>
+            </div>
+          </aside>
           </div>
         </div>
       </section>
@@ -741,6 +801,7 @@
         return {
            openInput: false,
            openSideNav:false,
+           openModal:false
         }
     }
       </script>

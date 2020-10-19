@@ -13,12 +13,17 @@
       href="css/styles.css"
       charset="utf-8"
     />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <script
-      src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.0/dist/alpine.min.js"
+      src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
       defer
     ></script>
   </head>
-  <body class="overflow-x-hidden">
+  <body
+    x-data="{openModal: false}"
+    :class="openModal ? 'overflow-hidden' : 'overflow-visible'"
+    class="overflow-x-hidden"
+  >
     <!-- Header -->
     <header class="bg-gray-bg pb-2">
       <div class="md:container mx-auto pt-8 pb-12">
@@ -205,9 +210,15 @@
       class="bg-gradient-to-r from-darkgreen-bg to-much-darker-green-bg items-center"
     >
       <ul
+        data-aos="fade-right"
+        data-aos-duration="500"
+        data-aos-easing="ease-in-out"
+        data-aos-offset="200"
         class="lg:container mx-auto grid font-medium text-white text-center uppercase md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6"
       >
-        <li class="border-r border-b border-white border-opacity-25">
+        <li
+          class="border-r border-b border-white border-opacity-25 xl:border-l"
+        >
           <a
             href="catalogue.html"
             class="flex flex-col items-center py-6 px-6 xl:pt-12 xl:pb-8 xl:px-10 hover:opacity-75 cursor-pointer transition duration-150 ease-in-out"
@@ -328,7 +339,7 @@
         </li>
 
         <li
-          class="border-b border-white border-opacity-25 xl:flex xl:space-x-4 xl:ml-5"
+          class="border-b border-white border-opacity-25 xl:flex xl:space-x-4 xl:border-r xl:mx-5"
         >
           <a
             href="contacts.html"
@@ -485,8 +496,14 @@
     <!-- End of Second Nav -->
 
     <main class="mt-16">
-      <!-- Наша Продукция (Products) -->
-      <section class="container mx-auto">
+      <!-- Наша Продукция (Products - Catalogue) -->
+      <section
+        data-aos="fade-down"
+        data-aos-duration="500"
+        data-aos-offset="200"
+        data-aos-easing="ease-in-out"
+        class="container mx-auto"
+      >
         <article>
           <h2 class="font-medium text-4xl uppercase tracking-wide text-center">
             Наша продукция
@@ -581,11 +598,72 @@
               <span class="font-bold">К КАЖДОМУ КЛИЕНТУ</span>
             </div>
             <div class="mt-10 md:mt-16 lg:mt-0">
-              <a
-                href=""
+              <button
+                @click="openModal = true"
                 class="btn btn-black bg-white text-black lg:text-white lg:bg-black font-medium text-base"
-                >Оставить Заявку</a
               >
+                Оставить Заявку
+              </button>
+
+              <!-- Modal -->
+              <aside
+                x-show="openModal"
+                class="fixed inset-0 w-full h-full flex items-center justify-center bg-black bg-opacity-85 z-50"
+              >
+                <div
+                  class="relative max-w-md w-full bg-white rounded-sm shadow-card-shadow"
+                >
+                  <div class="px-6 pt-4 border-b border-footer-gray">
+                    <h3 class="capitalize font-bold text-2xl">
+                      оставить заявку
+                    </h3>
+                  </div>
+                  <form class="pt-10 pl-8 pr-20 py-4">
+                    <label class="" for="name">
+                      Имя:
+                      <input
+                        id="name"
+                        class="py-1 px-2 rounded-sm border border-gray-darker w-full focus:outline-none focus:border-category-links"
+                        type="text"
+                      />
+                    </label>
+                    <label class="mt-6 block" for="email">
+                      Email:
+                      <input
+                        id="email"
+                        class="py-1 px-2 rounded-sm border border-gray-darker w-full focus:outline-none focus:border-category-links"
+                        type="email"
+                      />
+                    </label>
+                    <label class="mt-6 block" for="phone">
+                      Телефон:
+                      <input
+                        id="phone"
+                        class="py-1 px-2 rounded-sm border border-gray-darker w-full focus:outline-none focus:border-category-links"
+                        type="text"
+                      />
+                    </label>
+                  </form>
+
+                  <div class="bg-video-bg border-t border-video-bg">
+                    <div
+                      class="px-6 py-4 space-x-6 flex justify-end items-center text-white"
+                    >
+                      <button
+                        class="text-lg hover:underline"
+                        @click="openModal = false"
+                      >
+                        Отменить
+                      </button>
+                      <button
+                        class="px-6 py-2 text-lg rounded-md bg-blue-500 hover:bg-blue-600 focus:bg-blue-700 focus:opacity-100"
+                      >
+                        Отправить
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </aside>
             </div>
           </div>
         </div>
@@ -593,6 +671,10 @@
 
       <!-- About -->
       <section
+        data-aos="fade-down"
+        data-aos-duration="500"
+        data-aos-easing="ease-in-out"
+        data-aos-offset="200"
         class="container mx-auto px-4 sm:px-12 mt-16 flex flex-col max-w-3xl justify-center items-center text-center md:mt-6 lg:mt-20"
       >
         <div>
@@ -619,7 +701,13 @@
       <section
         class="mt-32 flex flex-col space-y-5 lg:flex-row lg:space-y-0 lg:space-x-3 w-full"
       >
-        <div class="relative w-full h-full">
+        <div
+          data-aos="zoom-in"
+          data-aos-offset="200"
+          data-aos-duration="500"
+          data-aos-easing="ease-in-out"
+          class="relative w-full h-full"
+        >
           <div class="overflow-hidden bg-none h-full w-full">
             <iframe
               class="min-w-full"
@@ -635,7 +723,13 @@
             ></iframe>
           </div>
         </div>
-        <div class="relative w-full h-full">
+        <div
+          data-aos="zoom-in"
+          data-aos-offset="200"
+          data-aos-duration="500"
+          data-aos-easing="ease-in-out"
+          class="relative w-full h-full"
+        >
           <div class="overflow-hidden bg-none h-full w-full">
             <iframe
               class="min-w-full"
@@ -653,6 +747,10 @@
       <!-- footer -->
       <footer class="bg-footer-gray">
         <div
+          data-aos="zoom-out-right"
+          data-aos-offset="200"
+          data-aos-duration="500"
+          data-aos-easing="ease-in-out"
           class="container mx-auto px-4 grid sm:grid-cols-2 xl:grid-cols-4 pb-12 pt-16 gap-12 xl:gap-4 xl:pt-10 xl:px-2"
         >
           <div
@@ -892,6 +990,28 @@
       </aside>
     </main>
 
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+        startEvent: "DOMContentLoaded", // name of the event dispatched on the document, that AOS should initialize on
+        initClassName: "aos-init", // class applied after initialization
+        animatedClassName: "aos-animate", // class applied on animation
+        useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+        disableMutationObserver: false, // disables automatic mutations' detections (advanced)
+        debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+        throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+
+        // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+        offset: 120, // offset (in px) from the original trigger point
+        delay: 0, // values from 0 to 3000, with step 50ms
+        duration: 400, // values from 0 to 3000, with step 50ms
+        easing: "ease", // default easing for AOS animations
+        once: true, // whether animation should happen only once - while scrolling down
+        mirror: false, // whether elements should animate out while scrolling past them
+        anchorPlacement: "top-bottom", // defines which position of the element regarding to window should trigger the animation
+      });
+    </script>
     <script>
       let slideIndex = 0;
       showSlides();

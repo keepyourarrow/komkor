@@ -194,15 +194,18 @@
               </svg>
             </button>
           </div>
-          <div class="flex items-center space-x-4 sm:space-x-8">
+          <!-- Sort (Сортировать) -->
+          <div class="flex items-center space-x-4">
             <span class="text-sm+ sm:text-lg lg:text-base">Сортировать по:</span>
-            <a href="" class="sort-links text-sm+ sm:text-lg lg:text-sm">цене</a>
             <a href="" class="sort-links text-sm+ sm:text-lg lg:text-sm">новизне</a>
           </div>
+          <!-- View (Вид) -->
           <div class="flex items-center space-x-3">
             <span class="text-lg lg:text-base">Вид:</span>
-            <a
-              class="px-3 text-btn-orange border-r-2 border-footer-gray cursor-pointer hover:text-gray-800"
+            <button
+              @click="view = 'grid'"
+              :class="view === 'grid' ? 'text-btn-orange hover:text-gray-800' : 'hover:text-btn-orange'"
+              class="px-3 border-r-2 border-footer-gray cursor-pointer hover:text-gray-800"
             >
               <svg
                 class="w-5 h-5 lg:w-3 lg:h-3"
@@ -221,9 +224,11 @@
                   d="M149.333 56v80c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V56c0-13.255 10.745-24 24-24h101.333c13.255 0 24 10.745 24 24zm181.334 240v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm32-240v80c0 13.255 10.745 24 24 24H488c13.255 0 24-10.745 24-24V56c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24zm-32 80V56c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm-205.334 56H24c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24zM0 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H24c-13.255 0-24 10.745-24 24zm386.667-56H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zm0 160H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zM181.333 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24z"
                 />
               </svg>
-            </a>
+            </button>
 
-            <a href="" class="hover:text-gray-800">
+            <button @click="view = 'list'"
+            :class="view === 'list' ? 'text-btn-orange hover:text-gray-800' : 'hover:text-btn-orange'"
+            >
               <svg
                 class="w-5 h-5 lg:w-3 lg:h-3"
                 fill="currentColor"
@@ -250,14 +255,16 @@
                   d="m23 18h-14c-.552 0-1 .448-1 1v4c0 .552.448 1 1 1h14c.552 0 1-.448 1-1v-4c0-.552-.448-1-1-1z"
                 />
               </svg>
-            </a>
+            </button>
           </div>
         </div>
 
-        <div
+        <!-- View Grid -->
+        <article
+        x-show="view === 'grid'"
           class="pt-8 pb-16 grid gap-10 px-10 sm:px-22 md:px-0 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         >
-        <!-- products -->
+        <!-- products(grid) -->
           <template x-for="item in items" :key="item.id">
             <a href="catalogue/catalogue-item.html" class="block">
               <div class="card-item px-6 py-10">
@@ -269,8 +276,42 @@
               </div>
             </a>
           </template>
-        </div>
-        <!-- end of products -->
+        </article>
+        <!-- end of products(grid) -->
+        <!--  End Grid -->
+        <!-- List View -->
+        <article
+        class="pt-8 pb-16"
+        x-show="view === 'list'"
+        >
+        <template x-for="item in items" :key="item.id">
+          <div class="flex flex-col space-y-12 px-2 sm:px-24 mb-10 pt-6 pb-16 border-b md:px-0 md:space-y-0 md:flex-row lg:pb-12 lg:pt-2 ">
+            <a href="catalogue/catalogue-item.html" class="block flex-1 w-full lg:w-veryLarge lg:h-80 lg:flex-initial">
+              <img class="object-cover object-center w-full" :src="item.img" alt="catalogue-card" />
+            </a>
+            <div class="flex-1 md:ml-16 lg:flex-initial xl:ml-40">
+              <div class="flex items-center justify-center md:justify-start space-x-2">
+                <span class="text-base uppercase tracking-wide font-bold sm:text-lg lg:text-2xl">название:</span>
+                <h4
+                x-text="item.title"
+                class="text-lg text-black font-semibold uppercase tracking-wide text-center sm:text-xl lg:text-2xl"
+                ></h4>
+              </div>
+              <div class="mt-6 lg:mt-12">
+                <h4 class="max-w-xxs mx-auto text-base font-bold tracking-wide uppercase text-center border-b border-black sm:max-w-xs+ sm:text-lg lg:text-2xl lg:max-w-md">Технические характеристики</h4>
+                <ul class='mt-4'>
+                  <li>- Механизм "Венеция" простой, удобный, надежный</li>
+                  <li>- Не требуется изготовление выкатного короба</li>
+                  <li>- Предельная динамическая нагрузка (600Н)</li>
+                  <li>- Угол погрешности при складывании (1); раскладывании (1)</li>
+                </ul>
+              </div>
+              </div>
+          </div>
+        </template>
+        </article>
+        <!-- End List View -->
+
 
         <!-- pagination -->
         <div
@@ -546,6 +587,7 @@
         return {
            openInput: false,
            openSideNav:false,
+           view:"grid",
            items: [
              {id:0,img:'./assets/defaultItem.png',title:'405 - ВЕНЕЦИЯ (УП 5)'},
              {id:1,img:'./assets/defaultItem.png',title:'405/01 - ВЕНЕЦИЯ'},
