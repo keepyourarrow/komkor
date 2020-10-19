@@ -123,7 +123,8 @@
           <!-- image -->
           <div class="relative flex items-center lg:space-x-4">
             <span
-              class="arrow z-30 left-0 -ml-1 md:-ml-6 lg:-ml-24 md:mt-48 xl:-mt-2"
+              id="left-arrow"
+              class="arrow z-30 left-0 -ml-1 md:-ml-6 lg:-ml-24 md:mt-48 xl:-mt-2 hidden"
             >
               <svg
                 class="w-12 h-12 md:w-20 md:h-20"
@@ -172,7 +173,8 @@
               />
             </div>
             <span
-              class="arrow -right-6 md:-right-30 lg:-right-100 z-30 md:mt-48 xl:mt-0"
+              id="right-arrow"
+              class="arrow -right-6 md:-right-30 lg:-right-100 z-30 md:mt-48 xl:mt-0 hidden"
             >
               <svg
                 class="w-12 h-12 md:w-20 md:h-20"
@@ -1030,9 +1032,9 @@
         let i;
         let slide = document.getElementsByClassName("slide");
         let header = document.querySelector("header");
+
         for (i = 0; i < slide.length; i++) {
           slide[i].style.display = "none";
-          console.log("works");
         }
         slideIndex++;
         if (slideIndex > slide.length) {

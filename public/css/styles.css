@@ -995,6 +995,7 @@ a.anchor {
 @media (max-width: 720px) {
   .map,
   .contacts-block {
+    height: auto;
     -webkit-flex: 0 !important;
     flex-shrink: 0 !important;
   }
