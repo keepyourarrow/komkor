@@ -207,5 +207,12 @@ a.anchor {
   top: -150px;
   /* visibility: hidden; */
 }
+@media (max-width: 720px) {
+  .map,
+  .contacts-block {
+    -webkit-flex: 0 !important;
+    flex-shrink: 0 !important;
+  }
+}
 
 @tailwind utilities;
